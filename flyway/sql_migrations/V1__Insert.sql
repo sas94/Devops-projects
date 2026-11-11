@@ -1,0 +1,1 @@
+INSERT INTO sample_table (name) VALUES ('sas'), ('aps');

@@ -1,0 +1,17 @@
+version: '3'
+services:
+  flyway:
+    image: flyway/flyway:7.15.0-alpine
+    container_name: qbsh-flyway
+    environment:
+      - FLYWAY_URL=jdbc:postgresql://my-db.c5mekqeqmyoq.us-east-1.rds.amazonaws.com:5432/sample
+      - FLYWAY_USER=postgres
+      - FLYWAY_PASSWORD=Aparna95
+      - FLYWAY_SCHEMAS=public
+      - FLYWAY_BASELINE_ON_MIGRATE=true
+      - FLYWAY_CONNECT_RETRIES=60
+      - FLYWAY_CLEAN_DISABLED=false
+    volumes:
+      - ./sql_migrations:/flyway/sql
+    command: ["migrate"]
+    
